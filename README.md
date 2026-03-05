@@ -48,32 +48,23 @@ You: My SSN is 123-45-6789
 Bot: 🚫 Blocked (Input - PII): Sensitive information detected
 ```
 
----
 
-# 📸 Screenshots
-
-<img src="docs/screenshot-cli.png" width="700" alt="CLI Chat Interface"/>
-
-*(Replace with actual screenshots)*
-
----
 
 # 🏗 Architecture (Visual / Animated)
 
 ```mermaid
 flowchart TD
+    A["User Input"] --> B["TrustGuard Input Validator (PII Detection)"]
+    B --> C["HuggingFace LLM (openai/gpt-oss-20b)"]
+    C --> D["TrustGuard Output Validator (PII Detection)"]
+    D --> E["Safe Response to User"]
+
     style A fill:#4caf50,stroke:#333,stroke-width:2px
     style B fill:#ff9800,stroke:#333,stroke-width:2px
     style C fill:#2196f3,stroke:#333,stroke-width:2px
     style D fill:#ff9800,stroke:#333,stroke-width:2px
     style E fill:#4caf50,stroke:#333,stroke-width:2px
-
-    A[User Input] --> B[TrustGuard Input Validator<br/>(PII Detection)]
-    B --> C[HuggingFace LLM<br/>(openai/gpt-oss-20b)]
-    C --> D[TrustGuard Output Validator<br/>(PII Detection)]
-    D --> E[Safe Response to User]
 ```
-
 **Diagram Description:**
 
 1. **User Input**
